@@ -1,0 +1,18 @@
+---- LWIP_PLATFORM_HTONS Matches (4 in 4 files) ----
+Inet.c (e:\stm32 projects\...\ipv4):219
+ * #define LWIP_PLATFORM_HTONS(x) <your_htons>
+ * #define LWIP_PLATFORM_HTONL(x) <your_htonl>
+ *
+Inet.h (e:\stm32 projects\...\lwip):86
+#define htons(x) LWIP_PLATFORM_HTONS(x)
+#define ntohs(x) LWIP_PLATFORM_HTONS(x)
+#define htonl(x) LWIP_PLATFORM_HTONL(x)
+#define ntohl(x) LWIP_PLATFORM_HTONL(x)
+Inet_chksum.c (e:\stm32 projects\...\ipv4):71
+#define SWAP_BYTES_IN_WORD(w) LWIP_PLATFORM_HTONS(w)
+#else
+/* can't use htons on big endian (or PLATFORM_BYTESWAP not defined)... */
+Rawapi.txt (e:\stm32 projects\...\doc):462
+#define LWIP_PLATFORM_HTONS(x) <your_htons>
+#define LWIP_PLATFORM_HTONL(x) <your_htonl>
+

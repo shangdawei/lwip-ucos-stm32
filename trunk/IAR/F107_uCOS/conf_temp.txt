@@ -1,0 +1,15 @@
+$PROJ_DIR$
+$PROJ_DIR$\..\BSP
+$PROJ_DIR$\..\..\..\..\..\CPU\ST\STM32\inc
+$PROJ_DIR$\..\..\..\..\..\uC-CPU
+$PROJ_DIR$\..\..\..\..\..\uC-CPU\ARM-Cortex-M3\IAR
+$PROJ_DIR$\..\..\..\..\..\uC-LCD\Source
+$PROJ_DIR$\..\..\..\..\..\uC-LIB
+$PROJ_DIR$\..\..\..\..\..\uCOS-II\Ports\ARM-Cortex-M3\Generic\IAR
+$PROJ_DIR$\..\..\..\..\..\uCOS-II\Source
+$PROJ_DIR$\..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Source
+$PROJ_DIR$\..\..\..\..\..\uC-Probe\Target\Communication\Generic\RS-232\Ports\ST\STM32
+$PROJ_DIR$\..\..\..\..\..\uC-Probe\Target\Communication\Generic\Source
+$PROJ_DIR$\..\..\..\..\..\uC-Probe\Target\Plugins\uCOS-II
+
+$PROJ_DIR$\..\BSP\STM32_Flash.icf
