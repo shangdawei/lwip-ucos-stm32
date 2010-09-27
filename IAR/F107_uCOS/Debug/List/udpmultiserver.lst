@@ -1,0 +1,264 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V5.50.0.51878/W32 for ARM     02/Aug/2010  15:53:22 #
+# Copyright (C) 1999-2010 IAR Systems AB.                                     #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\net #
+#                    app\udpmultiserver.c                                     #
+#    Command line =  "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\ne #
+#                    tapp\udpmultiserver.c" -D STM32F10X_CL -D                #
+#                    USE_STDPERIPH_DRIVER -lcN "E:\STM32                      #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\Debug\List\" #
+#                     -o "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCO #
+#                    S\Debug\Obj\" --no_cse --no_unroll --no_inline           #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M3  #
+#                    -e --fpu=None --dlib_config "D:\Program Files\IAR        #
+#                    Systems\Embedded Workbench 5.4\arm\INC\DLib_Config_Norma #
+#                    l.h" -I "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107 #
+#                    _uCOS\" -I "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F #
+#                    107_uCOS\netapp\" -I "E:\STM32                           #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\..\BSP\" -I  #
+#                    "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\.. #
+#                    \..\CPU\ST\STM32\inc\" -I "E:\STM32                      #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\..\..\CPU\ST #
+#                    \ETH\inc\" -I "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IA #
+#                    R\F107_uCOS\..\..\CPU\CMSIS\Core\CM3\" -I "E:\STM32      #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\..\..\uC-CPU #
+#                    \ARM-Cortex-M3\IAR\" -I "E:\STM32                        #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\..\..\uC-LIB #
+#                    \" -I "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_u #
+#                    COS\..\..\uCOS-II\Ports\ARM-Cortex-M3\Generic\IAR\" -I   #
+#                    "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\.. #
+#                    \..\uCOS-II\Source\" -I "E:\STM32                        #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\..\..\uC-CPU #
+#                    \" -I "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_u #
+#                    COS\..\..\lwIP\port\include\" -I "E:\STM32               #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\..\..\lwIP\p #
+#                    ort\include\" -I "E:\STM32 Projects\STM32_F107_lwIP_uCOS #
+#                    \IAR\F107_uCOS\..\..\lwIP\port\include\netif\" -I        #
+#                    "E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\.. #
+#                    \..\lwIP\src\include\" -I "E:\STM32                      #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\..\..\lwIP\s #
+#                    rc\include\ipv4\" -I "E:\STM32                           #
+#                    Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\..\..\lwIP\s #
+#                    rc\include\lwip\" -I "D:\Program Files\IAR               #
+#                    Systems\Embedded Workbench 5.4\arm\INC\" -On             #
+#    List file    =  E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\Deb #
+#                    ug\List\udpmultiserver.lst                               #
+#    Object file  =  E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\Deb #
+#                    ug\Obj\udpmultiserver.o                                  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+E:\STM32 Projects\STM32_F107_lwIP_uCOS\IAR\F107_uCOS\netapp\udpmultiserver.c
+      1          /**
+      2          * @file udpmultiserver.c
+      3          * @brief A brief file description.
+      4          * @details
+      5          *     A more elaborated file description.
+      6          * @author Wang Mengyin
+      7          * @date 2010Aug2 15:49:44
+      8          * @note
+      9          *               Copyright 2010 Wang Mengyin.ALL RIGHTS RESERVED.
+     10          *                            http://tigerwang202.blogbus.com
+     11          *    This software is provided under license and contains proprietary and
+     12          * confidential material which is the property of Company Name tech.
+     13          */
+     14          
+     15          
+     16          #define __UDPMULTISERVER_C
+     17          
+     18          
+     19          /* Includes ------------------------------------------------------------------*/
+     20          #include "udpmultiserver.h"
+     21          #include "udpserver.h"
+     22          #include <lwip/sockets.h> /* 使用BSD socket，需要包含sockets.h头文件 */
+     23          #include <includes.h>
+     24          #include "lwip/mem.h"
+     25          
+     26          /* Private typedef -----------------------------------------------------------*/
+     27          
+     28          
+     29          /* Private define ------------------------------------------------------------*/
+     30          #ifndef UDPMULTISERVER_STK_SIZE          /* UDPMULTISERVER 使用堆栈大小 */
+     31          #define UDPMULTISERVER_STK_SIZE  300
+     32          #endif
+     33          
+     34          #ifndef LWIP_UDPMULTISERVER_PRIO         /* UDPMULTISERVER 任务优先级 */
+     35          #define LWIP_UDPMULTISERVER_PRIO 16
+     36          #endif
+     37          
+     38          /* Private macro -------------------------------------------------------------*/
+     39          
+     40          
+     41          /* Private variables ---------------------------------------------------------*/
+     42          static OS_STK   UdpMultiServerStack[UDPMULTISERVER_STK_SIZE];
+     43          
+     44          /* Private function prototypes -----------------------------------------------*/
+     45          static void udpmultiserv(void* paramemter);
+     46          static void udpmultiserver_thread(void* arg);
+     47          
+     48          /* Private functions ---------------------------------------------------------*/
+     49          static void udpmultiserv(void* paramemter)
+     50          {
+     51             int sock;
+     52             int bytes_read;
+     53             char *recv_data;
+     54             u32_t addr_len;
+     55             struct sockaddr_in server_addr, client_addr;
+     56          
+     57             /* 分配接收用的数据缓冲 */
+     58             recv_data = mem_malloc(1024);
+     59             if (recv_data == NULL)
+     60             {
+     61                 /* 分配内存失败，返回 */
+     62                 printf("No memory\n");
+     63                 return;
+     64             }
+     65          
+     66             /* 创建一个socket，类型是SOCK_DGRAM，UDP类型 */
+     67             if ((sock = socket(AF_INET, SOCK_DGRAM, 0)) == -1)
+     68             {
+     69                 printf("Socket error\n");
+     70          
+     71                 /* 释放接收用的数据缓冲 */
+     72                 mem_free(recv_data);
+     73                 return;
+     74             }
+     75          
+     76             /* 初始化服务端地址 */
+     77             server_addr.sin_family = AF_INET;
+     78             server_addr.sin_port = htons(5000);
+     79             server_addr.sin_addr.s_addr = INADDR_ANY;
+     80             memset(&(server_addr.sin_zero),0, sizeof(server_addr.sin_zero));
+     81          
+     82             /* 绑定socket到服务端地址 */
+     83             if (bind(sock,(struct sockaddr *)&server_addr,
+     84                      sizeof(struct sockaddr)) == -1)
+     85             {
+     86                 /* 绑定地址失败 */
+     87                 printf("Bind error\n");
+     88          
+     89                 /* 释放接收用的数据缓冲 */
+     90                 mem_free(recv_data);
+     91                 return;
+     92             }
+     93          
+     94             addr_len = sizeof(struct sockaddr);
+     95             printf("UDPServer Waiting for client on port 5000...\n");
+     96          
+     97             while (1)
+     98             {
+     99                 /* 从sock中收取最大1024字节数据 */
+    100                 bytes_read = recvfrom(sock, recv_data, 1024, 0,
+    101                                       (struct sockaddr *)&client_addr, &addr_len);
+    102                 /* UDP不同于TCP，它基本不会出现收取的数据失败的情况，除非设置了超时等待 */
+    103          
+    104                 recv_data[bytes_read] = '\0'; /* 把末端清零 */
+    105          
+    106                 /* 输出接收的数据 */
+    107                 printf("\n(%s , %d) said : ",inet_ntoa(client_addr.sin_addr),
+    108                            ntohs(client_addr.sin_port));
+    109                 printf("%s", recv_data);
+    110          
+    111                 /* 如果接收数据是exit，退出 */
+    112                 if (strcmp(recv_data, "exit") == 0)
+    113                 {
+    114                     printf("receive \"exit\" command, exit udpserver task.\n");
+    115                     lwip_close(sock);
+    116          
+    117                     /* 释放接收用的数据缓冲 */
+    118                     mem_free(recv_data);
+    119                     break;
+    120                 }
+    121             }
+    122          
+    123             return;
+    124          }
+    125          
+    126          static void udpmultiserver_thread(void* arg)
+    127          {
+    128              udpmultiserv(arg);
+    129              
+    130              printf("Delete Udpserver thread.\n");
+    131              OSTaskDel(OS_PRIO_SELF);
+    132          }
+    133          
+    134          
+    135          /**
+    136          * @brief start udpmultiserver
+    137          */
+    138          void udpmultiserver_init()
+    139          {
+    140              CPU_INT08U  os_err;
+    141              
+    142              OSTaskCreate(udpmultiserver_thread, 
+    143                           NULL, 
+    144                           &UdpMultiServerStack[UDPMULTISERVER_STK_SIZE - 1], 
+    145                           LWIP_UDPMULTISERVER_PRIO
+    146                               );
+    147          #if (OS_TASK_NAME_SIZE >= 11)
+    148              OSTaskNameSet(LWIP_UDPSERVER_PRIO, (CPU_INT08U *)"udpmultiserver", &os_err);
+    149          #endif
+    150          }
+    151          
+    152          /*-- File end --*/
+    153          
+
+   Maximum stack usage in bytes:
+
+     Function              .cstack
+     --------              -------
+     memset                    16
+     udpmultiserv              72
+     udpmultiserver_init        8
+     udpmultiserver_thread      8
+
+
+   Section sizes:
+
+     Function/Label                           Bytes
+     --------------                           -----
+     memset                                     22
+     UdpMultiServerStack                      1200
+     udpmultiserv                              236
+     udpmultiserver_thread                      24
+     udpmultiserver_init                        26
+     ??DataTable2                                4
+     ??DataTable2_1                              4
+     ??DataTable2_2                              4
+     ??DataTable2_3                              4
+     ??DataTable2_4                              4
+     ??DataTable2_5                              4
+     ??DataTable2_6                              4
+     ??DataTable2_7                              4
+     ??DataTable2_8                              4
+     ??DataTable2_9                              4
+     ??DataTable2_10                             4
+     ??DataTable2_11                             4
+     ?<Constant "No memory\n">                  12
+     ?<Constant "Socket error\n">               16
+     ?<Constant "Bind error\n">                 12
+     ?<Constant "UDPServer Waiting for...">     48
+     ?<Constant "\n(%s , %d) said : ">          20
+     ?<Constant "%s">                            4
+     ?<Constant "receive \"exit\" comman...">   48
+     ?<Constant "exit">                          8
+     ?<Constant "Delete Udpserver thre...">     28
+     ?<Constant "udpmultiserver">               16
+
+ 
+ 1 200 bytes in section .bss
+   212 bytes in section .rodata
+   356 bytes in section .text
+ 
+   334 bytes of CODE  memory (+ 22 bytes shared)
+   212 bytes of CONST memory
+ 1 200 bytes of DATA  memory
+
+Errors: none
+Warnings: none
